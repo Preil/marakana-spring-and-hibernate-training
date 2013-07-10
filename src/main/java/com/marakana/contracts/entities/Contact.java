@@ -34,4 +34,16 @@ public class Contact {
 		this.addressId = addressId;
 	}
 
+	
+	// =============================
+	
+	public Contact(){}	
+	
+	// ------------------
+	
+	public Contact(String name, Long addressId) {
+		this.name = name;
+		this.addressId = addressId;
+	}
+
 }

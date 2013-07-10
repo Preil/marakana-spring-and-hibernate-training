@@ -2,6 +2,8 @@ package com.marakana.contracts.entities;
 
 public class Address {
 	
+
+
 	private Long id;
 	
 	public Long getId() {
@@ -53,6 +55,19 @@ public class Address {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}	
+	
+	// =============================
+	
+	public Address() {}
+	
+	// ----------------------	
+	
+	public Address(String street, String city, String state, String zip) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
 	
 
 }
