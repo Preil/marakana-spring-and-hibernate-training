@@ -14,16 +14,12 @@ public class Setup implements ServletContextListener{
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-
-		
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		
-		
 		try {
-			
 			new AddressRepository().init();
 			new ContactRepository().init();
 		

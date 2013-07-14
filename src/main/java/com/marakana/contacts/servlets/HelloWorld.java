@@ -22,6 +22,9 @@ public class HelloWorld  extends HttpServlet{
 /*		response.setContentType("text/html");
 		response.getWriter().println("<html><body><h1>Hello World! (Servlet)</h1></body></html>");*/
 		
+		String name = request.getParameter("name");
+		request.setAttribute("name", name);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/jsp/hello.jsp");
 		view.forward(request, response);
 		
