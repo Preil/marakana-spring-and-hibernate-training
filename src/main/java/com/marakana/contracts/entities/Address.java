@@ -2,8 +2,6 @@ package com.marakana.contracts.entities;
 
 public class Address {
 	
-
-
 	private Long id;
 	
 	public Long getId() {

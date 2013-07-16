@@ -6,6 +6,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import com.marakana.contracts.entities.Address;
+import com.marakana.contracts.entities.Contact;
 import com.marakana.contracts.repositories.AddressRepository;
 import com.marakana.contracts.repositories.ContactRepository;
 
@@ -21,10 +23,15 @@ public class Setup implements ServletContextListener{
 		
 		try {
 			new AddressRepository().init();
+			//System.out.println("@@@ STEP 1 COMPLETED");
+			//new AddressRepository().create(new Address("asdf", "asdf", "asdf", "asdf"));
+			//System.out.println("@@@ STEP 2 COMPLETED");
 			new ContactRepository().init();
-		
+			//System.out.println("@@@ STEP 3 COMPLETED");
+			//new ContactRepository().create(new Contact("dan", 0L));
+			//System.out.println("@@@ STEP 4 COMPLETED");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			//System.out.println("@@@ SOMETHING BAD HAPPENED");
 			e.printStackTrace();
 		}
 
