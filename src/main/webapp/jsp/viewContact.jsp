@@ -17,7 +17,7 @@
 	
 </ul>
 
-
+<a href="contact?edit&id=${contact.id}">edit contact list</a> |
 <a href="contacts">back to contact list</a>
 
 </body></html>
