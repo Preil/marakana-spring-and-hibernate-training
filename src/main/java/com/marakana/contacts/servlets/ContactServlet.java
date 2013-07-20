@@ -88,9 +88,24 @@ public class ContactServlet extends HttpServlet{
 				address.setZip(request.getParameter("zip"));
 				contactRepository.update(contact);
 				addressRepository.update(address);
+				
 				// redirect to contact view page 
 				response.sendRedirect("contact?id=" + contact.getId());
 				
+			} else if (request.getParameter("delete") != null){
+				// look up existing contact and address, and delete
+				Long id = Long.parseLong(request.getParameter("id"));
+				
+				Contact contact = contactRepository.find(id);
+				Address address = addressRepository.find(contact.getAddressId());
+				
+				contactRepository.delete(contact);
+				addressRepository.delete(address);
+
+				// redirect to contact list page 
+				response.sendRedirect("contacts");
+				
+			
 			} else {
 				super.doPost(request, response);
 			}
