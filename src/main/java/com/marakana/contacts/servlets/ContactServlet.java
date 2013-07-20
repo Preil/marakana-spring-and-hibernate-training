@@ -29,8 +29,18 @@ public class ContactServlet extends HttpServlet{
 		if (request.getParameter("add") != null){
 			request.getRequestDispatcher("jsp/addContact.jsp").forward(request, response);
 		} else {
-			// TODO
-			super.doGet(request, response);
+			Long id = Long.parseLong(request.getParameter("id"));
+			
+			try {
+				Contact contact = contactRepository.find(id);
+				Address address = addressRepository.find(contact.getAddressId());
+				request.setAttribute("contact", contact);
+				request.setAttribute("address", address);
+				request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
+			} catch (SQLException e) {
+				throw new ServletException(e);
+			}
+
 		}
 
 	}
@@ -44,7 +54,7 @@ public class ContactServlet extends HttpServlet{
 				addressRepository.create(address);
 				Contact contact = new Contact (request.getParameter("name"), address.getId());
 				contactRepository.create(contact);
-				response.sendRedirect("contacts");
+				response.sendRedirect("contact?id=" + contact.getId());
 			}
 		} catch (SQLException e) {
 			throw new ServletException(e);
